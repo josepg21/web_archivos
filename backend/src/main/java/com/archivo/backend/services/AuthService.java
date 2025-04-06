@@ -4,10 +4,8 @@ package com.archivo.backend.services;
 import com.archivo.backend.dtos.NewUserDto;
 import com.archivo.backend.entities.Role;
 import com.archivo.backend.entities.User;
-import com.archivo.backend.enums.RoleList;
 import com.archivo.backend.jwt.JwtUtil;
 import com.archivo.backend.repositories.RoleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -24,7 +22,6 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
-    @Autowired
     public AuthService(UserService userService, RoleRepository roleRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil, AuthenticationManagerBuilder authenticationManagerBuilder) {
         this.userService = userService;
         this.roleRepository = roleRepository;
