@@ -1,0 +1,72 @@
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/Emergencia.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(6px); /* Desenfoque */
+    z-index: -1; /* Imagen de fondo no cubre los elementos de la página */
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 320px; /* Reducido el ancho del cuadro */
+    text-align: center;
+}
+
+.logo {
+    width: 250px; 
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+  
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.custom-button {
+    width: 100%;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #710492;
+    color: white !important; /* <- Asegúrate de usar !important */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    max-width: 280px;
+    margin: 25px auto;
+  }
+  
+  .custom-button:hover {
+    background-color: #f74e00;
+  }
+
+
+mat-form-field {
+    margin-bottom: 1rem; /* Espacio entre los campos */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    height: 75px;
+    max-width: 280px; /* Limita el ancho de los campos */
+    margin-left: auto;
+    margin-right: auto;
+}
