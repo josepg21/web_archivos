@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
+
 
 
 
@@ -24,7 +26,7 @@ import { AuthService } from '../../core/services/auth.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       userName: ['', Validators.required],
       password: ['', Validators.required]
@@ -39,9 +41,10 @@ export class LoginComponent {
         next: (token: string) => {
           localStorage.setItem('token', token); // puedes manejar redirección después
           console.log('Login exitoso');
+          this.router.navigate(['/navigation']); // ← Aquí rediriges
         },
         error: err => {
-          alert('Credenciales incorrectas');
+          alert('Credenciales incorrectas: ' + err.message);
           console.error(err);
         }
       });
