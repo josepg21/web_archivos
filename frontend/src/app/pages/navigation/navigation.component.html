@@ -1,51 +1,26 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-      
-    <mat-toolbar class="menu-title">Archivos</mat-toolbar>
-    <mat-nav-list>
-
-      <div class="section-title">Personal</div>
-  <a mat-list-item [routerLink]="['staffreg']" routerLinkActive="active-link">Registro</a>
-  <a mat-list-item [routerLink]="['stafflist']" routerLinkActive="active-link">Listado</a>
-
-  <div class="section-title">Historias</div>
-  <a mat-list-item [routerLink]="['storie-entry']" routerLinkActive="active-link">Ingreso</a>
-  <a mat-list-item [routerLink]="['storie-loans']" routerLinkActive="active-link">Buscar</a>
-  <a mat-list-item [routerLink]="['storie-moves']" routerLinkActive="active-link">Movimientos</a>
-  <a mat-list-item [routerLink]="['storie-returns']" routerLinkActive="active-link">Préstamos</a>
-  <a mat-list-item [routerLink]="['storie-search']" routerLinkActive="active-link">Devoluciones</a>
-
-<div class="section-title">Ubicaciones</div>
-<a mat-list-item [routerLink]="['/not-found']">Folders</a>
-<a mat-list-item [routerLink]="['/not-found']">Cajas</a>
-<a mat-list-item [routerLink]="['/not-found']">Almacén</a>
-
-<div class="section-title">Reportes</div>
-<a mat-list-item [routerLink]="['/not-found']">Ingresos</a>
-<a mat-list-item [routerLink]="['/not-found']">Prestamos</a>
-<a mat-list-item [routerLink]="['/not-found']">Cajas</a>
-<a mat-list-item [routerLink]="['/not-found']">Movimientos</a>
-
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Menu</span>
-    </mat-toolbar>
-  
-    <!-- Aquí se cargarán las páginas -->
+<div class="layout">
+  <nav class="sidebar">
+    <header class="menu-title">Archivos</header>
+    <ul class="nav-list">
+      <li class="section-title">Personal</li>
+      <li><a routerLink="staffreg" routerLinkActive="active-link">Registro</a></li>
+      <li><a routerLink="stafflist" routerLinkActive="active-link">Listado</a></li>
+      <li class="section-title">Historias</li>
+      <li><a routerLink="storie-loans" routerLinkActive="active-link">Buscar</a></li>
+      <li><a routerLink="storie-returns" routerLinkActive="active-link">Préstamos</a></li>
+      <li><a routerLink="storie-search" routerLinkActive="active-link">Devoluciones</a></li>
+      <li class="section-title">Ubicaciones</li>
+      <li><a routerLink="/not-found">Folders</a></li>
+      <li><a routerLink="/not-found">Cajas</a></li>
+      <li><a routerLink="/not-found">Almacén</a></li>
+      <li class="section-title">Reportes</li>
+      <li><a routerLink="/not-found">Ingresos</a></li>
+      <li><a routerLink="/not-found">Prestamos</a></li>
+      <li><a routerLink="/not-found">Cajas</a></li>
+      <li><a routerLink="/not-found">Movimientos</a></li>
+    </ul>
+  </nav>
+  <main class="main-content">
     <router-outlet></router-outlet>
-  
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </main>
+</div>
