@@ -1,0 +1,200 @@
+/* === Estilos generales === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Título principal --- */
+h2.titulo-principal {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Contenedor de botones --- */
+.botones-acciones {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* --- Botones empresariales --- */
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button.registrar {
+  background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+}
+
+button.eliminar {
+  background: linear-gradient(135deg, #e53935, #c62828);
+}
+
+button.deshabilitar {
+  background: linear-gradient(135deg, #fb8c00, #ef6c00);
+}
+
+/* --- Tabla --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Cabecera */
+th {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+/* Celdas */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Filas */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover td {
+  background-color: #f0f4f8;
+  transition: background-color 0.2s ease;
+}
+
+/* --- Modal --- */
+.modal {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  max-width: 420px;
+  width: 100%;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+.modal h3 {
+  color: #34495e;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+/* Inputs y selects */
+.modal input,
+.modal select {
+  width: 95%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: #6A1B9A;
+  box-shadow: 0 0 6px rgba(106, 27, 154, 0.3);
+}
+
+/* Etiquetas */
+.form-group label {
+  font-weight: 600;
+  color: #444;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+/* Botones */
+.modal .botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.modal .botones button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Botón Guardar */
+.modal .botones .registrar {
+  background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+  color: #fff;
+}
+
+.modal .botones .registrar:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Botón Cancelar */
+.modal .botones .deshabilitar {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+  color: #fff;
+}
+
+.modal .botones .deshabilitar:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Fondo oscuro al abrir modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeOverlay 0.3s ease;
+}
+
+

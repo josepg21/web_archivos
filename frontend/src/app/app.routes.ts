@@ -3,8 +3,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { NavigationComponent } from './pages/navigation/navigation.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { StafflistComponent } from './pages/Staff/stafflist/stafflist.component';
-import { StaffregComponent } from './pages/Staff/staffreg/staffreg.component';
+import { UserClientComponent } from './pages/Staff/client-management/client-management.component';
+import { UserManagementComponent } from './pages/Staff/user-management/user-management.component';
 import { StorieLoansComponent } from './pages/Storie/storie-loans/storie-loans.component';
 import { StorieMovesComponent } from './pages/Storie/storie-moves/storie-moves.component';
 import { StorieReturnsComponent } from './pages/Storie/storie-returns/storie-returns.component';
@@ -16,8 +16,8 @@ export const routes: Routes = [
         path: 'navigation', 
         component: NavigationComponent,
         children: [
-            { path: 'stafflist', component: StafflistComponent },
-            { path: 'staffreg', component: StaffregComponent },
+            { path: 'stafflist', component: UserClientComponent },
+            { path: 'staffreg', component: UserManagementComponent },
             { path: 'storie-loans', component: StorieLoansComponent },
             { path: 'storie-moves', component: StorieMovesComponent },
             { path: 'storie-returns', component: StorieReturnsComponent },

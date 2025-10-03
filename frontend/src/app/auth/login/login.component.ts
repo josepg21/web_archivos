@@ -7,6 +7,7 @@ import { ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -26,28 +27,26 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar,private router: Router) {
     this.loginForm = this.fb.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required]
+    usuario: ['', Validators.required],
+    contraseña: ['', Validators.required]
     });
   }
 
-  onSubmit(): void {
-    if (this.loginForm.valid) {
-      const { userName, password } = this.loginForm.value; // ← AQUÍ
-  
-      this.authService.login(userName, password).subscribe({
-        next: (token: string) => {
+  onSubmit() {
+  const { usuario, contraseña } = this.loginForm.value;
+  this.authService.login(usuario, contraseña).subscribe({
+    next: (token) => {
+      this.snackBar.open('¡Acceso exitoso!', '', { duration: 2000 });
+      setTimeout(() => {
           localStorage.setItem('token', token); // puedes manejar redirección después
           console.log('Login exitoso');
           this.router.navigate(['/navigation']); // ← Aquí rediriges
-        },
-        error: err => {
-          alert('Credenciales incorrectas: ' + err.message);
-          console.error(err);
-        }
-      });
+      }, 1000);
+    },
+    error: (err) => {
+      this.snackBar.open('Credenciales incorrectas', '', { duration: 2000 });
     }
-  }
-}
+  });
+}}

@@ -1,24 +1,24 @@
 package com.archivo.backend.entities;
 
-import com.archivo.backend.enums.RoleList;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "rol")
-public class Role {
-
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Enumerated(EnumType.STRING) // Almacena el enum como VARCHAR en la BD
-    @Column(nullable = false, unique = true)
-    private RoleList name;
+    @Column(name = "nombre", nullable = false)
+    private String nombre;
 
+    public String getName() {
+        return nombre;
+    }
 }

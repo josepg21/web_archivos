@@ -2,7 +2,7 @@ package com.archivo.backend.dtos;
 
 import java.time.LocalDate;
 
-public class DocumentDto {
+public class HistoriaClinicaDto {
     private String numeroHistoria;
     private String usuario;
     private LocalDate fechaCarga;
@@ -10,10 +10,10 @@ public class DocumentDto {
     private LocalDate fechaDocumento;
     private String nombrePaciente;
 
-    public DocumentDto() {
+    public HistoriaClinicaDto() {
     }
 
-    public DocumentDto(String numeroHistoria, String usuario, LocalDate fechaCarga, String nombreDocumento, LocalDate fechaDocumento, String nombrePaciente) {
+    public HistoriaClinicaDto(String numeroHistoria, String usuario, LocalDate fechaCarga, String nombreDocumento, LocalDate fechaDocumento, String nombrePaciente) {
         this.numeroHistoria = numeroHistoria;
         this.usuario = usuario;
         this.fechaCarga = fechaCarga;

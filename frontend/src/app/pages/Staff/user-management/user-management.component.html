@@ -1,0 +1,75 @@
+<h2 class="titulo-principal">Gestión de Personal – Área de Archivos</h2>
+
+<div class="botones-acciones" style="margin-bottom:12px;">
+  <button class="registrar" type="button" (click)="abrirModalRegistro()">Registrar</button>
+  <button class="eliminar" type="button" (click)="eliminarSeleccionados()">Eliminar</button>
+  <button class="deshabilitar" type="button" (click)="deshabilitarSeleccionados()">Deshabilitar</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Nombre Completo</th>
+      <th>Cargo</th>
+      <th>Sede</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuarios; let i = index">
+      <td>{{ usuario.dni }}</td>
+      <td>{{ usuario.nombreCompleto }}</td>
+      <td>{{ usuario.rol }}</td>
+      <td>{{ usuario.sede }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="mostrarModalRegistro">
+  <div class="modal">
+    <h3>REGISTRAR USUARIO</h3>
+
+    <form class="formulario-modal" (ngSubmit)="registrarUsuario()">
+      <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" name="usuario" [(ngModel)]="nuevoUsuario.usuario" required />
+      </div>
+
+      <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" name="contrasena" type="password" [(ngModel)]="nuevoUsuario.contrasena" required />
+      </div>
+
+      <div class="form-group">
+        <label for="nombreCompleto">Nombre Completo</label>
+        <input id="nombreCompleto" name="nombreCompleto" [(ngModel)]="nuevoUsuario.nombreCompleto" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dni">DNI</label>
+        <input id="dni" name="dni" [(ngModel)]="nuevoUsuario.dni" required />
+      </div>
+
+      <div class="form-group">
+        <label for="rol">Rol</label>
+        <select id="rol" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
+          <option value="">-- Seleccione --</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Empleado">Empleado</option>
+          <option value="Supervisor">Supervisor</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="sede">Sede</label>
+        <input id="sede" name="sede" [(ngModel)]="nuevoUsuario.sede" required />
+      </div>
+
+      <div class="botones modal-acciones">
+        <button class="registrar" type="submit">Guardar</button>
+        <button class="deshabilitar" type="button" (click)="cerrarModalRegistro()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>

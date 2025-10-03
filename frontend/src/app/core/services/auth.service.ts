@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
   
     constructor(private http: HttpClient) {}
   
-    login(username: string, password: string): Observable<any> {
+    login(usuario: string, contraseña: string): Observable<any> {
       return this.http.post(`${this.apiUrl}/login`, {
-        userName: username,
-        password: password
-      }, { responseType: 'text' });
-    }
+      usuario: usuario,
+      contraseña: contraseña
+    }, { responseType: 'text' });
+}
   }
