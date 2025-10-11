@@ -22,7 +22,7 @@ public class UsuarioService implements UserDetailsService {
     public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
         Usuario user = usuarioRepository.findByUsuario(usuario)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRol().getName().toString());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRol().getRoles().toString());
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsuario(),

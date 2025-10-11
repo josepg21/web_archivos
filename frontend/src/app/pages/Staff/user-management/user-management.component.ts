@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-user-management',
@@ -9,11 +10,8 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule]
 })
-export class UserManagementComponent {
-  usuarios = [
-    { dni: '12345678', nombreCompleto: 'Juan Pérez', rol: 'Asitente', sede: 'Clinica San Juan'},
-    { dni: '87654321', nombreCompleto: 'Ana Gómez', rol: 'Administrador', sede: 'Clinica Surco'}
-  ];
+export class UserManagementComponent implements OnInit{
+
 
   mostrarModalRegistro = false;
   nuevoUsuario: any = {
@@ -25,6 +23,17 @@ export class UserManagementComponent {
     sede: ''
   };
 
+  roles: any[] = [];
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+  this.authService.getRoles().subscribe(data => {
+    this.roles = data;
+    console.log('Roles cargados:', this.roles); // <-- Verifica en consola
+  });
+}
+
   abrirModalRegistro() {
     this.mostrarModalRegistro = true;
   }
@@ -35,19 +44,13 @@ export class UserManagementComponent {
   }
 
   registrarUsuario() {
-    this.usuarios.push({
-      dni: this.nuevoUsuario.dni,
-      nombreCompleto: this.nuevoUsuario.nombreCompleto,
-      rol: this.nuevoUsuario.rol,
-      sede: this.nuevoUsuario.sede
-    });
-    this.cerrarModalRegistro();
-  }
+    alert('Funcionalidad de registrar aún no implementada');}
+  
 
   eliminarSeleccionados() {
     alert('Funcionalidad de eliminar aún no implementada');}
 
-  deshabilitarSeleccionados() {
+  modificarSeleccionados() {
     alert('Funcionalidad de deshabilitar aún no implementada');
 
   }

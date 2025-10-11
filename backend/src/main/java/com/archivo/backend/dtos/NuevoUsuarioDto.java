@@ -12,6 +12,4 @@ public class NuevoUsuarioDto {
     private String contraseña;
     private String nombreCompleto;
     private String rol;
-    private Integer clienteId;
-    private Integer areaInternaId;
 }

@@ -10,6 +10,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.archivo.backend.repositories.RoleRepository;
+import com.archivo.backend.entities.Rol;
+import com.archivo.backend.dtos.RoleDto;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/auth")
@@ -20,6 +26,9 @@ public class AuthController {
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid @RequestBody LoginUserDto loginUserDto, BindingResult bindingResult){
@@ -52,5 +61,15 @@ public class AuthController {
         return ResponseEntity.ok().body("Autenticado");
     }
 
-
+    @GetMapping("/roles")
+    public ResponseEntity<List<RoleDto>> getRoles() {
+        List<Rol> roles = roleRepository.findAll();
+        List<RoleDto> dtos = roles.stream().map(r -> {
+            RoleDto dto = new RoleDto();
+            dto.setId(r.getId());
+            dto.setRoles(r.getRoles());
+            return dto;
+        }).toList();
+        return ResponseEntity.ok(dtos);
+    }
 }

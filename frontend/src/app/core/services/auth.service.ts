@@ -16,4 +16,8 @@ import { Observable } from 'rxjs';
       contraseña: contraseña
     }, { responseType: 'text' });
 }
+
+getRoles() {
+  return this.http.get<any[]>('http://localhost:8080/auth/roles');
+}
   }

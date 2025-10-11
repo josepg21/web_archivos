@@ -15,10 +15,10 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
+    @Column(name = "roles", nullable = false)
+    private String roles;
 
-    public String getName() {
-        return nombre;
+    public String getRol() {
+        return roles;
     }
 }

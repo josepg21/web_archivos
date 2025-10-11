@@ -1,9 +1,10 @@
+
 <h2 class="titulo-principal">Gestión de Personal – Área de Archivos</h2>
 
 <div class="botones-acciones" style="margin-bottom:12px;">
   <button class="registrar" type="button" (click)="abrirModalRegistro()">Registrar</button>
   <button class="eliminar" type="button" (click)="eliminarSeleccionados()">Eliminar</button>
-  <button class="deshabilitar" type="button" (click)="deshabilitarSeleccionados()">Deshabilitar</button>
+  <button class="modificar" type="button" (click)="modificarSeleccionados()">Deshabilitar</button>
 </div>
 
 <table>
@@ -15,14 +16,6 @@
       <th>Sede</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let usuario of usuarios; let i = index">
-      <td>{{ usuario.dni }}</td>
-      <td>{{ usuario.nombreCompleto }}</td>
-      <td>{{ usuario.rol }}</td>
-      <td>{{ usuario.sede }}</td>
-    </tr>
-  </tbody>
 </table>
 
 <!-- Modal -->
@@ -52,14 +45,14 @@
       </div>
 
       <div class="form-group">
-        <label for="rol">Rol</label>
-        <select id="rol" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
-          <option value="">-- Seleccione --</option>
-          <option value="Administrador">Administrador</option>
-          <option value="Empleado">Empleado</option>
-          <option value="Supervisor">Supervisor</option>
-        </select>
-      </div>
+      <label for="dni">Rol</label>
+      <select id="rol" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
+        
+        
+        <option value="">-- Seleccione --</option>
+        <option *ngFor="let rol of roles" [value]="rol.roles">{{ rol.roles }}</option>
+      </select>
+    </div>
 
       <div class="form-group">
         <label for="sede">Sede</label>

@@ -2,7 +2,6 @@ package com.archivo.backend.services;
 
 
 import com.archivo.backend.dtos.NuevoUsuarioDto;
-import com.archivo.backend.entities.AreaInterna;
 import com.archivo.backend.entities.Cliente;
 import com.archivo.backend.entities.Rol;
 import com.archivo.backend.entities.Usuario;
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Service;
 public class AuthService {
     private final UsuarioService usuarioService;
     private final ClienteRepository clienteRepository;
-    private final AreaInternaRepository areaInternaRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
@@ -30,7 +28,6 @@ public class AuthService {
         this.usuarioService = usuarioService;
         this.roleRepository = roleRepository;
         this.clienteRepository = clienteRepository;
-        this.areaInternaRepository = areaInternaRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
@@ -43,37 +40,28 @@ public class AuthService {
         return jwtUtil.generateToken(authResult);
     }
 
-public void registerUser(NuevoUsuarioDto nuevoUsuarioDto){
-    if (usuarioService.existsByUsuario(nuevoUsuarioDto.getUsuario())){
+public void registerUser(NuevoUsuarioDto nuevoUsuarioDto) {
+    // Verificar si el usuario ya existe
+    if (usuarioService.existsByUsuario(nuevoUsuarioDto.getUsuario())) {
         throw new IllegalArgumentException("El nombre de usuario ya existe");
     }
 
-    Rol rol = roleRepository.findByNombre(nuevoUsuarioDto.getRol())
+    // Buscar el rol por nombre
+    Rol rol = roleRepository.findByRoles(nuevoUsuarioDto.getRol())
         .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
 
+    // Crear el usuario
     Usuario usuario = new Usuario();
     usuario.setUsuario(nuevoUsuarioDto.getUsuario());
     usuario.setContraseña(passwordEncoder.encode(nuevoUsuarioDto.getContraseña()));
-    usuario.setRol(rol);
     usuario.setNombreCompleto(nuevoUsuarioDto.getNombreCompleto());
+    usuario.setRol(rol);
 
-    // Asignar cliente si viene el id
-    if (nuevoUsuarioDto.getClienteId() != null) {
-        Cliente cliente = clienteRepository.findById(nuevoUsuarioDto.getClienteId())
-            .orElse(null);
-        usuario.setCliente(cliente);
-    }
-
-    // Asignar área interna si viene el id
-    if (nuevoUsuarioDto.getAreaInternaId() != null) {
-        AreaInterna area = areaInternaRepository.findById(nuevoUsuarioDto.getAreaInternaId())
-            .orElse(null);
-        usuario.setAreaInterna(area);
-    }
 
     usuario.setFechaCreado(java.time.LocalDateTime.now());
     usuario.setFechaActualizado(java.time.LocalDateTime.now());
 
+    // Guardar el usuario
     usuarioService.save(usuario);
 }
 }
