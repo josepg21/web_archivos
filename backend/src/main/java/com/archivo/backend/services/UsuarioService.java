@@ -1,6 +1,6 @@
 package com.archivo.backend.services;
 
-import com.archivo.backend.entities.Usuario;
+import com.archivo.backend.entities.NuevoUsuario;
 import com.archivo.backend.repositories.UsuarioRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UsuarioService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String usuario) throws UsernameNotFoundException {
-        Usuario user = usuarioRepository.findByUsuario(usuario)
+        NuevoUsuario user = usuarioRepository.findByUsuario(usuario)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRol().getRoles().toString());
 
@@ -35,7 +35,7 @@ public class UsuarioService implements UserDetailsService {
         return usuarioRepository.existsByUsuario(usuario);
     }
 
-    public void save(Usuario usuario){
+    public void save(NuevoUsuario usuario){
         usuarioRepository.save(usuario);
     }
 }

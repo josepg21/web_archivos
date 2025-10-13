@@ -23,7 +23,7 @@ public class Movimiento {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private NuevoUsuario usuario;
 
     @Column(name = "tipo")
     private String tipo;

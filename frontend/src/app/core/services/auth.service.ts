@@ -20,4 +20,13 @@ import { Observable } from 'rxjs';
 getRoles() {
   return this.http.get<any[]>('http://localhost:8080/auth/roles');
 }
-  }
+
+getSedes() {
+  return this.http.get<any[]>('http://localhost:8080/auth/sedes');
+}
+
+getNameSedes(){
+  return this.http.get<any[]>('http://localhost:8080/auth/sedes-nombres');
+}
+
+}

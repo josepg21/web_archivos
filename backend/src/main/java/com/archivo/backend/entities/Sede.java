@@ -20,4 +20,5 @@ public class Sede {
 
     @Column(name = "direccion")
     private String direccion;
+
 }

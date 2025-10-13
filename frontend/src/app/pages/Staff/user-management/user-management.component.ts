@@ -24,15 +24,23 @@ export class UserManagementComponent implements OnInit{
   };
 
   roles: any[] = [];
+  sedeNombres: any[] = [];
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
   this.authService.getRoles().subscribe(data => {
     this.roles = data;
-    console.log('Roles cargados:', this.roles); // <-- Verifica en consola
+    console.log('Roles cargados:', this.roles);
   });
+
+  this.authService.getNameSedes().subscribe(data =>{ 
+      this.sedeNombres = data; // Usar el nuevo nombre de la variable
+      console.log('Sedes cargadas:', this.sedeNombres);
+  })
 }
+
+
 
   abrirModalRegistro() {
     this.mostrarModalRegistro = true;

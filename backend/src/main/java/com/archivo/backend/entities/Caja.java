@@ -33,7 +33,7 @@ public class Caja {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private NuevoUsuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "sede_id")

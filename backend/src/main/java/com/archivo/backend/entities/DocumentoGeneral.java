@@ -39,7 +39,7 @@ public class DocumentoGeneral {
 
     @ManyToOne
     @JoinColumn(name = "subido_por")
-    private Usuario subidoPor;
+    private NuevoUsuario subidoPor;
 
     @Column(name = "fecha_subida")
     private LocalDateTime fechaSubida;

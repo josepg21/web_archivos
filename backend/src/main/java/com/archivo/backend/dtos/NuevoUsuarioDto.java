@@ -11,5 +11,7 @@ public class NuevoUsuarioDto {
     private String usuario;
     private String contraseña;
     private String nombreCompleto;
+    private String dni;
     private String rol;
+    private String sede;
 }

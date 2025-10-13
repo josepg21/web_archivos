@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class NuevoUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,23 +27,16 @@ public class Usuario {
     @Column(name = "nombre_completo")
     private String nombreCompleto;
 
-    @Column(name = "correo")
-    private String correo;
-
-    @Column(name = "telefono")
-    private String telefono;
+    @Column(name = "dni")
+    private String dni;
 
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-
-    @ManyToOne
-    @JoinColumn(name = "area_interna_id")
-    private AreaInterna areaInterna;
+    @JoinColumn(name = "sede_id")
+    private Sede sede;
 
     @Column(name = "fecha_creado")
     private LocalDateTime fechaCreado;

@@ -1,8 +1,9 @@
 package com.archivo.backend.controllers;
 
 
-import com.archivo.backend.dtos.LoginUserDto;
-import com.archivo.backend.dtos.NuevoUsuarioDto;
+import com.archivo.backend.dtos.*;
+import com.archivo.backend.entities.Sede;
+import com.archivo.backend.repositories.SedeRepository;
 import com.archivo.backend.services.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.archivo.backend.repositories.RoleRepository;
 import com.archivo.backend.entities.Rol;
-import com.archivo.backend.dtos.RoleDto;
 
 import java.util.List;
 
@@ -22,13 +22,17 @@ import java.util.List;
 public class AuthController {
 
     private final AuthService authService;
+    private final RoleRepository roleRepository; // Ahora final
+    private final SedeRepository sedeRepository; // Ahora final
 
-    public AuthController(AuthService authService) {
+    // Constructor único para inyectar TODAS las dependencias
+    public AuthController(AuthService authService,
+                          RoleRepository roleRepository, // Añadido
+                          SedeRepository sedeRepository) { // Añadido
         this.authService = authService;
+        this.roleRepository = roleRepository; // Asignación
+        this.sedeRepository = sedeRepository; // Asignación: SOLUCIÓN
     }
-
-    @Autowired
-    private RoleRepository roleRepository;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid @RequestBody LoginUserDto loginUserDto, BindingResult bindingResult){
@@ -70,6 +74,37 @@ public class AuthController {
             dto.setRoles(r.getRoles());
             return dto;
         }).toList();
+        return ResponseEntity.ok(dtos);
+    }
+
+    // /auth/sedes-nombres
+    @GetMapping("/sedes-nombres")
+    public ResponseEntity<List<SedeNameDto>> getSedesParaRegistro() {
+        List<Sede> sedes = sedeRepository.findAll();
+
+        List<SedeNameDto> dtos = sedes.stream().map(s -> {
+            SedeNameDto dto = new SedeNameDto();
+            dto.setId(s.getId());
+            dto.setNombre(s.getNombre());
+            return dto;
+        }).toList();
+
+        return ResponseEntity.ok(dtos);
+    }
+
+    // /auth/sedes
+    @GetMapping("/sedes")
+    public ResponseEntity<List<SedeDto>> getSedes() {
+        List<Sede> sedes = sedeRepository.findAll();
+
+        List<SedeDto> dtos = sedes.stream().map(s -> {
+            SedeDto dto = new SedeDto();
+            dto.setId(s.getId());
+            dto.setNombre(s.getNombre());
+            dto.setDireccion(s.getDireccion());
+            return dto;
+        }).toList();
+
         return ResponseEntity.ok(dtos);
     }
 }

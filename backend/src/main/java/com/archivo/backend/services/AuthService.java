@@ -2,11 +2,12 @@ package com.archivo.backend.services;
 
 
 import com.archivo.backend.dtos.NuevoUsuarioDto;
-import com.archivo.backend.entities.Cliente;
 import com.archivo.backend.entities.Rol;
-import com.archivo.backend.entities.Usuario;
+import com.archivo.backend.entities.Sede;
+import com.archivo.backend.entities.NuevoUsuario;
 import com.archivo.backend.jwt.JwtUtil;
 import com.archivo.backend.repositories.RoleRepository;
+import com.archivo.backend.repositories.SedeRepository;
 import com.archivo.backend.repositories.ClienteRepository;
 import com.archivo.backend.repositories.AreaInternaRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,9 +25,11 @@ public class AuthService {
     private final JwtUtil jwtUtil;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private RoleRepository roleRepository;
-    public AuthService(UsuarioService usuarioService, RoleRepository roleRepository, ClienteRepository clienteRepository, AreaInternaRepository areaInternaRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil, AuthenticationManagerBuilder authenticationManagerBuilder) {
+    private SedeRepository sedeRepository;
+    public AuthService(UsuarioService usuarioService, RoleRepository roleRepository, SedeRepository sedeRepository,ClienteRepository clienteRepository, AreaInternaRepository areaInternaRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil, AuthenticationManagerBuilder authenticationManagerBuilder) {
         this.usuarioService = usuarioService;
         this.roleRepository = roleRepository;
+        this.sedeRepository = sedeRepository;
         this.clienteRepository = clienteRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
@@ -50,12 +53,17 @@ public void registerUser(NuevoUsuarioDto nuevoUsuarioDto) {
     Rol rol = roleRepository.findByRoles(nuevoUsuarioDto.getRol())
         .orElseThrow(() -> new RuntimeException("Rol no encontrado"));
 
+    // Buscar la sede por nombre
+    Sede sede = sedeRepository.findByNombre(nuevoUsuarioDto.getSede())
+        .orElseThrow(() -> new RuntimeException("Sede no encontrado"));
+
     // Crear el usuario
-    Usuario usuario = new Usuario();
+    NuevoUsuario usuario = new NuevoUsuario();
     usuario.setUsuario(nuevoUsuarioDto.getUsuario());
     usuario.setContraseña(passwordEncoder.encode(nuevoUsuarioDto.getContraseña()));
     usuario.setNombreCompleto(nuevoUsuarioDto.getNombreCompleto());
     usuario.setRol(rol);
+    usuario.setSede(sede);
 
 
     usuario.setFechaCreado(java.time.LocalDateTime.now());
