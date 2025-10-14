@@ -1,67 +1,149 @@
-.container {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #673ab7; /* Morado corporativo */
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-right: 10px;
-  }
-  
-  .import-button {
-    background-color: #ff9800; /* Naranja corporativo */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .import-button:hover {
-    background-color: #fb8c00;
-  }
-  
-  .tabla {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tabla th,
-  .tabla td {
-    border: 1px solid #dddddd;
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .tabla th {
-    background-color: #673ab7;
-    color: white;
-  }
-  
-  .tabla tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .tabla tr:hover {
-    background-color: #e1bee7; /* Ligero morado al pasar el mouse */
-  }
-  
+/* --- TÓPICOS GENERALES Y TÍTULO --- */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4F7FC; 
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content-container {
+  max-width: 1200px; /* Suficiente espacio para todas las columnas */
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h2.titulo-principal {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6A1B9A; /* Púrpura corporativo */
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* --- SECCIÓN DE ACCIONES (Busqueda, Filtro y Botones) --- */
+.acciones-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.filtros {
+  display: flex;
+  gap: 12px;
+  flex-grow: 1; /* Permite que los filtros ocupen el espacio disponible */
+}
+
+/* Barra de Búsqueda y Select/Filtro */
+.search-bar, .filter-select {
+  padding: 10px 15px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+}
+
+.search-bar {
+    flex: 2; /* El campo de búsqueda es más grande */
+}
+
+.filter-select {
+    flex: 1; /* El campo de filtro es más pequeño */
+    min-width: 200px;
+}
+
+.search-bar:focus, .filter-select:focus {
+  border-color: #7B1FA2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(123, 31, 162, 0.2);
+}
+
+.botones-acciones {
+  display: flex;
+  gap: 12px;
+}
+
+/* Estilos de Botones (Reutilizando las clases de la sección anterior) */
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón Primario (Exportar Excel) - Púrpura Corporativo */
+.btn-primario {
+  background-color: #6A1B9A;
+  color: #fff;
+}
+.btn-primario:hover {
+  background-color: #5D1488;
+}
+
+/* Botón de Advertencia (Importar Excel) - Naranja/Amarillo (para acciones secundarias/diferentes) */
+.btn-advertencia {
+  background-color: #FFB300;
+  color: #fff;
+}
+.btn-advertencia:hover {
+  background-color: #FF8F00;
+}
+
+
+/* --- SECCIÓN DE TABLA --- */
+.tabla-container {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.tabla thead th {
+  background: #7B1FA2; /* Tono de púrpura para el encabezado */
+  color: white;
+  padding: 14px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.tabla td {
+  padding: 12px;
+  border-bottom: 1px solid #E5E7EB;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #4B5563;
+}
+
+/* Estilo de zebra (filas alternas) */
+.tabla tr:nth-child(even) {
+  background-color: #F9FAFB;
+}
+
+/* Efecto hover con color lila suave */
+.tabla tr:hover td {
+  background-color: #F3E5F5;
+  transition: background-color 0.2s ease;
+}

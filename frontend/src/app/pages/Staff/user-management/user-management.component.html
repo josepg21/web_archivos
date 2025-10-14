@@ -1,73 +1,145 @@
+<div class="main-content-container">
+  <h2 class="titulo-principal">Gestión de Personal – Área de Archivos</h2>
 
-<h2 class="titulo-principal">Gestión de Personal – Área de Archivos</h2>
-
-<div class="botones-acciones" style="margin-bottom:12px;">
-  <button class="registrar" type="button" (click)="abrirModalRegistro()">Registrar</button>
-  <button class="eliminar" type="button" (click)="eliminarSeleccionados()">Eliminar</button>
-  <button class="modificar" type="button" (click)="modificarSeleccionados()">Deshabilitar</button>
-</div>
-
-<table>
-  <thead>
-    <tr>
-      <th>DNI</th>
-      <th>Nombre Completo</th>
-      <th>Cargo</th>
-      <th>Sede</th>
-    </tr>
-  </thead>
-</table>
-
-<!-- Modal -->
-<div class="modal-overlay" *ngIf="mostrarModalRegistro">
-  <div class="modal">
-    <h3>REGISTRAR USUARIO</h3>
-
-    <form class="formulario-modal" (ngSubmit)="registrarUsuario()">
-      <div class="form-group">
-        <label for="usuario">Usuario</label>
-        <input id="usuario" name="usuario" [(ngModel)]="nuevoUsuario.usuario" required />
-      </div>
-
-      <div class="form-group">
-        <label for="contrasena">Contraseña</label>
-        <input id="contrasena" name="contrasena" type="password" [(ngModel)]="nuevoUsuario.contrasena" required />
-      </div>
-
-      <div class="form-group">
-        <label for="nombreCompleto">Nombre Completo</label>
-        <input id="nombreCompleto" name="nombreCompleto" [(ngModel)]="nuevoUsuario.nombreCompleto" required />
-      </div>
-
-      <div class="form-group">
-        <label for="dni">DNI</label>
-        <input id="dni" name="dni" [(ngModel)]="nuevoUsuario.dni" required />
-      </div>
-
-      <div class="form-group">
-      <label for="rol">Rol</label>
-      <select id="rol" name="rol" [(ngModel)]="nuevoUsuario.rol" required>
-        
-        
-        <option value="">-- Seleccione --</option>
-        <option *ngFor="let rol of roles" [value]="rol.roles">{{ rol.roles }}</option>
-      </select>
+  <div class="acciones-container">
+    <div class="botones-acciones">
+      <button class="btn-primario" type="button" (click)="abrirModalRegistro()">
+        <i class="fa fa-plus"></i> Registrar
+      </button>
+      <button class="btn-advertencia" type="button" (click)="modificarSeleccionados()">
+        <i class="fa fa-ban"></i> Deshabilitar
+      </button>
+      <button class="btn-peligro" type="button" (click)="eliminarSeleccionados()">
+        <i class="fa fa-trash-alt"></i> Eliminar
+      </button>
     </div>
+  </div>
 
-      <div class="form-group">
-  <label for="sede">Sede</label>
-  <select id="sede" name="sede" [(ngModel)]="nuevoUsuario.sede" required>
-    <option value="">-- Seleccione --</option>
-    
-    <option *ngFor="let sede of sedeNombres" [value]="sede.nombre">{{ sede.nombre }}</option>
-    
-  </select>
+  <div class="tabla-container">
+    <table>
+      <thead>
+        <tr>
+          <th>DNI</th>
+          <th>Nombre Completo</th>
+          <th>Cargo</th>
+          <th>Sede</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12345678A</td>
+          <td>Ana María López Pérez</td>
+          <td>Administrador</td>
+          <td>Central</td>
+        </tr>
+        <tr>
+          <td>98765432B</td>
+          <td>Juan Carlos Rivera Soto</td>
+          <td>Técnico de Archivo</td>
+          <td>Norte</td>
+        </tr>
+        <tr>
+          <td>55443322C</td>
+          <td>María Elena Gómez Díaz</td>
+          <td>Asistente Administrativo</td>
+          <td>Sur</td>
+        </tr>
+        <tr>
+          <td>11223344D</td>
+          <td>Pedro Antonio Flores Vega</td>
+          <td>Gestor Documental</td>
+          <td>Central</td>
+        </tr>
+        <tr>
+          <td>66778899E</td>
+          <td>Sofía Isabel Miranda Torres</td>
+          <td>Técnico de Archivo</td>
+          <td>Este</td>
+        </tr>
+        <tr>
+          <td>22114455F</td>
+          <td>Luis Felipe Cáceres Muro</td>
+          <td>Administrador</td>
+          <td>Norte</td>
+        </tr>
+        <tr>
+          <td>77665544G</td>
+          <td>Laura Patricia Peña Ríos</td>
+          <td>Asistente Administrativo</td>
+          <td>Sur</td>
+        </tr>
+        <tr>
+          <td>33445566H</td>
+          <td>Ricardo Javier Solís Cruz</td>
+          <td>Gestor Documental</td>
+          <td>Oeste</td>
+        </tr>
+        <tr>
+          <td>88779911I</td>
+          <td>Elena Victoria Rivas Salas</td>
+          <td>Técnico de Archivo</td>
+          <td>Central</td>
+        </tr>
+        <tr>
+          <td>44332211J</td>
+          <td>Fernando José Quito Paz</td>
+          <td>Asistente Administrativo</td>
+          <td>Este</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-      <div class="botones modal-acciones">
-        <button class="registrar" type="submit">Guardar</button>
-        <button class="deshabilitar" type="button" (click)="cerrarModalRegistro()">Cancelar</button>
-      </div>
-    </form>
-  </div>
+<div class="modal-overlay" *ngIf="mostrarModalRegistro"> 
+  <div class="modal"> 
+    <h3>REGISTRAR USUARIO</h3> 
+
+    <form class="formulario-modal" (ngSubmit)="registrarUsuario()"> 
+      <div class="form-group"> 
+        <label for="usuario">Usuario</label> 
+        <input id="usuario" name="usuario" [(ngModel)]="nuevoUsuario.usuario" required /> 
+      </div> 
+
+      <div class="form-group"> 
+        <label for="contrasena">Contraseña</label> 
+        <input id="contrasena" name="contrasena" type="password" [(ngModel)]="nuevoUsuario.contrasena" required /> 
+      </div> 
+
+      <div class="form-group"> 
+        <label for="nombreCompleto">Nombre Completo</label> 
+        <input id="nombreCompleto" name="nombreCompleto" [(ngModel)]="nuevoUsuario.nombreCompleto" required /> 
+      </div> 
+
+      <div class="form-group"> 
+        <label for="dni">DNI</label> 
+        <input id="dni" name="dni" [(ngModel)]="nuevoUsuario.dni" required /> 
+      </div> 
+
+      <div class="form-group"> 
+      <label for="rol">Rol</label> 
+      <select id="rol" name="rol" [(ngModel)]="nuevoUsuario.rol" required> 
+        
+        
+        <option value="">-- Seleccione --</option> 
+        <option *ngFor="let rol of roles" [value]="rol.roles">{{ rol.roles }}</option> 
+      </select> 
+    </div> 
+
+      <div class="form-group"> 
+  <label for="sede">Sede</label> 
+  <select id="sede" name="sede" [(ngModel)]="nuevoUsuario.sede" required> 
+    <option value="">-- Seleccione --</option> 
+    
+    <option *ngFor="let sede of sedeNombres" [value]="sede.nombre">{{ sede.nombre }}</option> 
+    
+  </select> 
+</div> 
+
+      <div class="botones modal-acciones"> 
+        <button class="btn-primario" type="submit">Guardar</button> 
+        <button class="btn-advertencia" type="button" (click)="cerrarModalRegistro()">Cancelar</button> 
+      </div> 
+    </form> 
+  </div> 
 </div>

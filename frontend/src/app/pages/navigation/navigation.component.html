@@ -1,25 +1,111 @@
+<header class="topbar">
+  <div class="logo-area">
+    <img src="/assets/logo.png" alt="Logo" class="logo" />
+    <span class="titulo-sistema">Gestión de Archivos Clínicos</span>
+  </div>
+
+  <div class="user-area">
+    <span class="usuario-logueado">👤 {{ usuario }}</span>
+    <button class="btn-logout" (click)="cerrarSesion()">
+      <fa-icon [icon]="faRightFromBracket"></fa-icon> Cerrar sesión
+    </button>
+  </div>
+</header>
+
 <div class="layout">
   <nav class="sidebar">
-    <header class="menu-title">Archivos</header>
     <ul class="nav-list">
       <li class="section-title">Personal</li>
-      <li><a routerLink="staffreg" routerLinkActive="active-link">Usuarios</a></li>
-      <li><a routerLink="stafflist" routerLinkActive="active-link">Terceros</a></li>
+
+      <li>
+        <a routerLink="staffreg" routerLinkActive="active-link">
+          <fa-icon [icon]="faUser" class="icon"></fa-icon>
+          <span>Usuarios</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="stafflist" routerLinkActive="active-link">
+          <fa-icon [icon]="faUserTie" class="icon"></fa-icon>
+          <span>Terceros</span>
+        </a>
+      </li>
+
       <li class="section-title">Historias</li>
-      <li><a routerLink="storie-loans" routerLinkActive="active-link">Buscar</a></li>
-      <li><a routerLink="storie-returns" routerLinkActive="active-link">Préstamos</a></li>
-      <li><a routerLink="storie-search" routerLinkActive="active-link">Devoluciones</a></li>
+
+      <li>
+        <a routerLink="storie-loans" routerLinkActive="active-link">
+          <fa-icon [icon]="faMagnifyingGlass" class="icon"></fa-icon>
+          <span>Buscar</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="storie-returns" routerLinkActive="active-link">
+          <fa-icon [icon]="faRightLeft" class="icon"></fa-icon>
+          <span>Préstamos</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="storie-search" routerLinkActive="active-link">
+          <fa-icon [icon]="faRotateLeft" class="icon"></fa-icon>
+          <span>Devoluciones</span>
+        </a>
+      </li>
+
       <li class="section-title">Ubicaciones</li>
-      <li><a routerLink="/not-found">Folders</a></li>
-      <li><a routerLink="/not-found">Cajas</a></li>
-      <li><a routerLink="/not-found">Almacén</a></li>
+
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faFolder" class="icon"></fa-icon>
+          <span>Folders</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faBoxArchive" class="icon"></fa-icon>
+          <span>Cajas</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faWarehouse" class="icon"></fa-icon>
+          <span>Almacén</span>
+        </a>
+      </li>
+
       <li class="section-title">Reportes</li>
-      <li><a routerLink="/not-found">Ingresos</a></li>
-      <li><a routerLink="/not-found">Prestamos</a></li>
-      <li><a routerLink="/not-found">Cajas</a></li>
-      <li><a routerLink="/not-found">Movimientos</a></li>
+
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faLock" class="icon"></fa-icon>
+          <span>Pendiente</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faLock" class="icon"></fa-icon>
+          <span>Pendiente</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faLock" class="icon"></fa-icon>
+          <span>Pendiente</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="storie-returns">
+          <fa-icon [icon]="faLock" class="icon"></fa-icon>
+          <span>Pendiente</span>
+        </a>
+      </li>
     </ul>
   </nav>
+
   <main class="main-content">
     <router-outlet></router-outlet>
   </main>

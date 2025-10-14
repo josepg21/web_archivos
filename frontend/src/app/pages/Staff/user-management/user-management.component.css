@@ -1,69 +1,93 @@
 /* === Estilo base general === */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #F8FAFC;
-  color: #2F3640;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4F7FC; /* Fondo claro */
+  color: #333333;
   margin: 0;
   padding: 0;
 }
 
-/* --- Título principal --- */
-h2.titulo-principal {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #3B3B58;
-  margin-bottom: 1.2rem;
-  text-align: center;
-  letter-spacing: 0.5px;
+/* --- Contenedor Principal para Centrado y Espaciado --- */
+.main-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
 }
 
-/* --- Botones principales --- */
+/* --- Título principal --- */
+h2.titulo-principal {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* --- Botones y Acciones --- */
+.acciones-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .botones-acciones {
   display: flex;
-  gap: 10px;
-  justify-content: flex-start;
-  margin-bottom: 1.2rem;
+  gap: 12px;
 }
 
 button {
   border: none;
-  border-radius: 6px;
-  padding: 7px 16px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Colores suaves */
-button.registrar {
-  background-color: #A78BFA;
+/* Paleta Morada Corporativa */
+/* Botón Primario (Registrar) - Color corporativo */
+button.btn-primario {
+  background-color: #6A1B9A; /* Púrpura oscuro, similar al divbar */
   color: #fff;
 }
-button.registrar:hover {
-  background-color: #8B5CF6;
+button.btn-primario:hover {
+  background-color: #5D1488;
 }
 
-button.eliminar {
-  background-color: #EAB8B8;
-  color: #4B0000;
+/* Botón de Advertencia (Deshabilitar) - Naranja/Amarillo (para contraste) */
+button.btn-advertencia {
+  background-color: #FFB300; /* Naranja/Amarillo contrastante */
+  color: #fff;
 }
-button.eliminar:hover {
-  background-color: #E57373;
-  color: white;
+button.btn-advertencia:hover {
+  background-color: #FF8F00;
 }
 
-button.modificar {
-  background-color: #FCD34D;
-  color: #4B3F00;
+/* Botón de Peligro (Eliminar) - Rojo (estándar para peligro) */
+button.btn-peligro {
+  background-color: #E53935;
+  color: #fff;
 }
-button.modificar:hover {
-  background-color: #FBBF24;
+button.btn-peligro:hover {
+  background-color: #C62828;
+}
+
+/* --- Contenedor de la Tabla y Sombra (Efecto Marco) --- */
+.tabla-container {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 /* --- Tabla --- */
@@ -71,25 +95,25 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 12px;
 }
 
 th {
-  background: #3B3B58;
+  background: #7B1FA2; /* Tono de púrpura un poco más claro que el botón principal */
   color: white;
-  padding: 10px;
+  padding: 14px;
   text-align: center;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 td {
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid #E5E7EB;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #4B5563;
 }
 
 tr:nth-child(even) {
@@ -97,9 +121,11 @@ tr:nth-child(even) {
 }
 
 tr:hover td {
-  background-color: #EEF2FF;
-  transition: 0.2s ease;
+  background-color: #F3E5F5; /* Tono lila muy claro para el hover, basado en el color corporativo */
+  transition: background-color 0.2s ease;
 }
+
+/* El CSS del modal (no mostrado) se mantiene, ajustando solo las clases de botones si es necesario. */
 
 /* --- Modal --- */
 .modal-overlay {
@@ -109,6 +135,7 @@ tr:hover td {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Asegura que el modal esté encima de otros elementos */
 }
 
 .modal {
@@ -116,17 +143,17 @@ tr:hover td {
   border: 1px solid #E5E7EB;
   padding: 24px 28px;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Sombra más fuerte */
   max-width: 420px;
   width: 95%;
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .modal h3 {
-  color: #3B3B58;
-  font-size: 1.3rem;
+  color: #6A1B9A; /* Usando el color corporativo para el título del modal */
+  font-size: 1.4rem;
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -135,18 +162,18 @@ tr:hover td {
 .modal input,
 .modal select {
   width: 100%;
-  padding: 9px 12px;
-  margin-bottom: 14px;
+  padding: 10px 12px; /* Ligeramente más padding */
+  margin-bottom: 16px;
   border: 1px solid #D1D5DB;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .modal input:focus,
 .modal select:focus {
-  border-color: #8B5CF6;
-  box-shadow: 0 0 4px rgba(139, 92, 246, 0.4);
+  border-color: #7B1FA2; /* Color corporativo en el focus */
+  box-shadow: 0 0 5px rgba(123, 31, 162, 0.3);
 }
 
 /* Etiquetas */
@@ -155,31 +182,59 @@ tr:hover td {
   color: #374151;
   display: block;
   margin-bottom: 5px;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 /* Botones modal */
-.modal .botones {
+.modal-acciones {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-.modal .botones .registrar {
-  flex: 1;
-  background-color: #8B5CF6;
-  color: #fff;
-}
-.modal .botones .registrar:hover {
-  background-color: #7C3AED;
+.modal-acciones button {
+    flex: 1; /* Para que los botones se estiren y se repartan el espacio */
 }
 
-.modal .botones .deshabilitar {
-  flex: 1;
-  background-color: #F59E0B;
+/* Ajuste de colores para los nuevos botones en el modal */
+.modal .modal-acciones .btn-primario {
+  /* Guardar */
+  background-color: #6A1B9A; /* Púrpura corporativo */
   color: #fff;
 }
-.modal .botones .deshabilitar:hover {
-  background-color: #D97706;
+.modal .modal-acciones .btn-primario:hover {
+  background-color: #5D1488;
+}
+
+.modal .modal-acciones .btn-advertencia {
+  /* Cancelar */
+  background-color: #9E9E9E; /* Gris neutro, mejor para cancelar que el naranja */
+  color: #fff;
+}
+.modal .modal-acciones .btn-advertencia:hover {
+  background-color: #757575;
+}
+
+/* Si quieres que "Cancelar" use el color naranja/amarillo de advertencia: */
+/*
+.modal .modal-acciones .btn-advertencia {
+  background-color: #FFB300;
+  color: #fff;
+}
+.modal .modal-acciones .btn-advertencia:hover {
+  background-color: #FF8F00;
+}
+*/
+
+/* Animación de entrada (opcional, pero buena práctica) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

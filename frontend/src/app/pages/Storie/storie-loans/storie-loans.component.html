@@ -1,32 +1,59 @@
-<div class="container">
-    <h2>Historias Clínicas Prestadas</h2>
-  
-    <div class="actions">
-      <input type="text" placeholder="Buscar..." class="search-bar">
-      <button class="import-button">Importar Excel</button>
+<div class="main-content-container">
+  <h2 class="titulo-principal">Historias Clínicas</h2>
+
+  <div class="acciones-container">
+    <div class="filtros">
+      <input type="text" placeholder="Buscar por N° HC, Usuario o Paciente..." class="search-bar">
+      
+      <select class="filter-select">
+        <option value="">Filtrar por Documento</option>
+        <option value="Ingreso">Ingreso</option>
+        <option value="Epicrisis">Epicrisis</option>
+        <option value="Exámenes">Exámenes de Laboratorio</option>
+        <option value="Notas">Notas Médicas</option>
+      </select>
     </div>
-  
+
+    <div class="botones-acciones">
+      <button class="btn-primario" type="button">
+        <i class="fa fa-upload"></i> Exportar Excel
+      </button>
+      <button class="btn-advertencia" type="button">
+        <i class="fa fa-download"></i> Importar Excel
+      </button>
+    </div>
+  </div>
+
+  <div class="tabla-container">
     <table class="tabla">
       <thead>
         <tr>
           <th>N° HC</th>
           <th>Usuario</th>
-          <th>Fecha de Carga</th>
+          <th>Fecha de Préstamo</th>
           <th>Nombre del Documento</th>
           <th>Fecha del Documento</th>
           <th>Nombre del Paciente</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>001234</td>
-          <td>jrodriguez</td>
-          <td>2025-04-25</td>
-          <td>Ingreso</td>
-          <td>2025-04-24</td>
-          <td>María López</td>
-        </tr>
+        <tr><td>001234</td><td>jrodriguez</td><td>2025-04-25</td><td>Ingreso</td><td>2025-04-24</td><td>María López</td></tr>
+        <tr><td>004567</td><td>lmartinez</td><td>2025-04-25</td><td>Epicrisis</td><td>2025-04-20</td><td>Carlos Díaz</td></tr>
+        <tr><td>007890</td><td>asanchez</td><td>2025-04-26</td><td>Exámenes de Laboratorio</td><td>2025-04-25</td><td>Elena Torres</td></tr>
+        <tr><td>001122</td><td>ogarcia</td><td>2025-04-26</td><td>Notas Médicas</td><td>2025-04-26</td><td>Felipe Castro</td></tr>
+        <tr><td>003344</td><td>bramos</td><td>2025-04-27</td><td>Ingreso</td><td>2025-04-26</td><td>Gabriela Soto</td></tr>
+        <tr><td>005566</td><td>ccruz</td><td>2025-04-27</td><td>Epicrisis</td><td>2025-04-22</td><td>Héctor Nuñez</td></tr>
+        <tr><td>007788</td><td>mlopez</td><td>2025-04-28</td><td>Exámenes de Laboratorio</td><td>2025-04-27</td><td>Isabel Rojas</td></tr>
+        <tr><td>009900</td><td>psoto</td><td>2025-04-28</td><td>Notas Médicas</td><td>2025-04-28</td><td>Jorge Vidal</td></tr>
+        <tr><td>010110</td><td>cvega</td><td>2025-04-29</td><td>Ingreso</td><td>2025-04-28</td><td>Karla Peña</td></tr>
+        <tr><td>012233</td><td>dfernandez</td><td>2025-04-29</td><td>Epicrisis</td><td>2025-04-25</td><td>Luis Morales</td></tr>
+        <tr><td>014455</td><td>mrivera</td><td>2025-04-30</td><td>Exámenes de Laboratorio</td><td>2025-04-29</td><td>Mónica Ramos</td></tr>
+        <tr><td>016677</td><td>jtorres</td><td>2025-04-30</td><td>Notas Médicas</td><td>2025-04-30</td><td>Nicolás Pérez</td></tr>
+        <tr><td>018899</td><td>squispe</td><td>2025-05-01</td><td>Ingreso</td><td>2025-04-30</td><td>Olivia Gil</td></tr>
+        <tr><td>020011</td><td>aramirez</td><td>2025-05-01</td><td>Epicrisis</td><td>2025-04-27</td><td>Pablo Lira</td></tr>
+        <tr><td>022233</td><td>vsalas</td><td>2025-05-02</td><td>Exámenes de Laboratorio</td><td>2025-05-01</td><td>Quiteria Ramos</td></tr>
+      
       </tbody>
     </table>
   </div>
-  
+</div>

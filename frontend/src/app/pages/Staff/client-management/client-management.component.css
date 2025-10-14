@@ -1,26 +1,71 @@
-.container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fefefe;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  font-family: Arial, sans-serif;
+/* === Estilo base general === */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4F7FC; /* Fondo claro */
+  color: #333333;
+  margin: 0;
+  padding: 0;
 }
-h2 {
+
+/* --- Contenedor Principal para Centrado y Espaciado --- */
+/* Cambiado de .container a .main-content-container para un diseño full width centralizado */
+.main-content-container {
+  max-width: 1300px; /* Un poco más ancho por la cantidad de columnas */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 24px;
+}
+
+/* --- Título principal --- */
+h2.titulo-principal {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 24px;
   text-align: center;
-  color: #6a1b9a;
+  letter-spacing: -0.5px;
 }
+
+/* --- Contenedor de la Tabla y Sombra (Efecto Marco) --- */
+.tabla-container {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra principal para el 'marco' */
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* --- Tabla --- */
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 12px;
 }
-th, td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+
 th {
-  background-color: #6a1b9a;
+  background: #7B1FA2; /* Púrpura corporativo para el encabezado */
   color: white;
+  padding: 14px;
+  text-align: center; /* Centrar encabezados */
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #E5E7EB;
+  text-align: center; /* Centrar el contenido de la tabla */
+  font-size: 0.95rem;
+  color: #4B5563;
+}
+
+/* Estilo de zebra (filas alternas) */
+tr:nth-child(even) {
+  background-color: #F9FAFB;
+}
+
+/* Efecto hover con color lila suave */
+tr:hover td {
+  background-color: #F3E5F5;
+  transition: background-color 0.2s ease;
 }
