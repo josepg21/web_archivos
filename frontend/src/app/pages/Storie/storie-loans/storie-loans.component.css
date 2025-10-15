@@ -8,37 +8,53 @@ body {
 }
 
 .main-content-container {
-  max-width: 1200px; /* Suficiente espacio para todas las columnas */
+  max-width: 1400px; 
   margin: 0 auto;
-  padding: 24px;
+  padding: 30px 40px; 
 }
 
 h2.titulo-principal {
   font-size: 2rem;
   font-weight: 700;
-  color: #6A1B9A; /* Púrpura corporativo */
+  color: #6A1B9A; 
   margin-bottom: 24px;
   text-align: center;
   letter-spacing: -0.5px;
 }
 
-/* --- SECCIÓN DE ACCIONES (Busqueda, Filtro y Botones) --- */
+/* --- NUEVO: BOTONES FLOTANTES (Exportar/Importar) --- */
+.botones-acciones-flotantes {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-bottom: 10px; 
+    padding-left: 0; 
+    width: 100%;
+}
+
+/* --- SECCIÓN DE ACCIONES (Contenedor blanco de filtros) --- */
 .acciones-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 20px;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 30px; 
+  padding: 15px; 
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
 }
 
-.filtros {
+/* Contenedor principal para todos los campos de filtro y botón Buscar (Línea inferior) */
+.filtros-principales {
   display: flex;
   gap: 12px;
-  flex-grow: 1; /* Permite que los filtros ocupen el espacio disponible */
+  flex-grow: 1; 
+  align-items: center; 
+  width: 100%;
 }
 
-/* Barra de Búsqueda y Select/Filtro */
-.search-bar, .filter-select {
+/* Estilo base de Inputs */
+.search-bar, .document-filter-input, .date-input-wrapper {
   padding: 10px 15px;
   border: 1px solid #D1D5DB;
   border-radius: 8px;
@@ -46,27 +62,58 @@ h2.titulo-principal {
   transition: border-color 0.3s;
 }
 
+/* 1. Búsqueda General (REDUCIDO) */
 .search-bar {
-    flex: 2; /* El campo de búsqueda es más grande */
+  flex: 1.5; /* Reducido de 3 a 2.5 para ahorrar espacio */
+  min-width: 180px; /* Mantenido un mínimo razonable */
 }
 
-.filter-select {
-    flex: 1; /* El campo de filtro es más pequeño */
-    min-width: 200px;
+/* 2. Filtro por Documento */
+.document-filter-input {
+  flex: 2;
+  min-width: 150px;
 }
 
-.search-bar:focus, .filter-select:focus {
+/* 3. Contenedores de Fecha */
+.date-input-wrapper {
+    flex: 1; 
+    min-width: 120px;
+    padding: 0;
+    border: 1px solid #D1D5DB;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date-input-wrapper label {
+    font-weight: 600;
+    color: #4B5563;
+    font-size: 0.9rem;
+    padding-left: 10px;
+}
+
+.date-input-wrapper input {
+    border: none;
+    padding: 10px 10px; 
+    font-size: 0.95rem;
+    width: 100%;
+    text-align: right;
+    background: transparent;
+}
+.date-input-wrapper input:focus {
+    outline: none;
+}
+
+/* Aplicar el focus style a todos los inputs */
+.search-bar:focus, 
+.document-filter-input:focus,
+.date-input-wrapper:focus-within { 
   border-color: #7B1FA2;
-  outline: none;
   box-shadow: 0 0 5px rgba(123, 31, 162, 0.2);
 }
 
-.botones-acciones {
-  display: flex;
-  gap: 12px;
-}
 
-/* Estilos de Botones (Reutilizando las clases de la sección anterior) */
+/* Estilos de Botones */
 button {
   border: none;
   border-radius: 8px;
@@ -78,11 +125,26 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap; 
 }
 
 button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón de Búsqueda */
+button.btn-buscar {
+  height: 40px; 
+  background-color: #E0E0E0; 
+  color: #424242; 
+  padding: 0 18px; 
+  flex-shrink: 0; 
+}
+
+button.btn-buscar:hover {
+  background-color: #CFCFCF; 
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Botón Primario (Exportar Excel) - Púrpura Corporativo */
@@ -94,7 +156,7 @@ button:hover {
   background-color: #5D1488;
 }
 
-/* Botón de Advertencia (Importar Excel) - Naranja/Amarillo (para acciones secundarias/diferentes) */
+/* Botón de Advertencia (Importar Excel) - Naranja/Amarillo */
 .btn-advertencia {
   background-color: #FFB300;
   color: #fff;
@@ -108,34 +170,52 @@ button:hover {
 .tabla-container {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  overflow: hidden;
+  overflow-x: auto; 
   margin: 0 auto;
 }
 
 .tabla {
   width: 100%;
+  min-width: 1200px; 
   border-collapse: collapse;
   background-color: #fff;
-  border-radius: 12px;
 }
 
 .tabla thead th {
-  background: #7B1FA2; /* Tono de púrpura para el encabezado */
+  background: #7B1FA2; 
   color: white;
-  padding: 14px;
+  padding: 14px 10px; 
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem; 
   font-weight: 600;
   letter-spacing: 0.5px;
+  white-space: nowrap; 
+  line-height: 1.2; 
 }
 
 .tabla td {
-  padding: 12px;
+  padding: 12px 10px;
   border-bottom: 1px solid #E5E7EB;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #4B5563;
+  word-break: break-word; 
 }
+
+/* Ajuste específico para el nombre del paciente (Columna 2) para que se lea mejor */
+.tabla td:nth-child(2) { 
+    text-align: left;
+    padding-left: 20px;
+    font-weight: 500;
+    width: 20%;
+}
+
+/* Ajuste específico para el nombre del archivo (Columna 6) */
+.tabla td:nth-child(6) { 
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
 
 /* Estilo de zebra (filas alternas) */
 .tabla tr:nth-child(even) {
