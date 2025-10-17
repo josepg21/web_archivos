@@ -1,1 +1,404 @@
-<p>POR TRABAJAR</p>
+<div class="main-content-container">
+
+  <div class="botones-acciones-flotantes">
+    <button class="btn-primario" type="button">
+      <i class="fa fa-upload"></i> Exportar
+    </button>
+    <button class="btn-advertencia" type="button">
+      <i class="fa fa-download"></i> Importar
+    </button>
+  </div>
+
+  <div class="acciones-container">
+    
+    <div class="filtros-principales">
+      <input 
+        type="text" 
+        placeholder="N° HC, DNI o Nombre de Paciente..." 
+        class="search-bar"
+      >
+
+      <input 
+        type="text" 
+        placeholder="Nombre de Documento..." 
+        class="document-filter-input"
+      >
+      
+      <div class="date-input-wrapper">
+        <label>Desde:</label>
+        <input id="fecha-inicio" type="date">
+      </div>
+      
+      <div class="date-input-wrapper">
+        <label>Hasta:</label>
+        <input id="fecha-fin" type="date">
+      </div>
+      
+      <button class="btn-buscar" type="button">
+        <i class="fa fa-search"></i> Buscar
+      </button>
+    </div>
+  </div>
+
+  <div class="tabla-container">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Codigo QR</th>
+          <th>Nro Caja</th>
+          <th>Estante</th>
+          <th>Columna</th>
+          <th>Nivel</th>
+          <th>Cliente</th>
+          <th>Sede</th>
+          <th>Área</th>
+          <th>Serie Documental</th>
+          <th>N° HC</th>
+          <th>Nombre Paciente</th>
+          <th>Tipo Archivo</th>
+          <th>Nombre del documento</th>
+          <th>Tipo Archivo</th>
+          <th>Nombre Archivo</th>
+          <th>Digitalizador</th>
+          <th>Fecha Carga</th>
+          <th>Día</th>
+          <th>Mes</th>
+          <th>Año</th>
+          <th>Status</th>
+          <th>Tipo Error</th>
+          <th>Observaciones</th>
+          <th>Responsable Revisión</th>
+          <th>Fecha Revisión</th>
+          <th>Revisado</th>
+          <th>Corregido</th>
+          <th>Total Producción</th>
+          <th>Muesta 3%</th>
+          <th>% Error</th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <td>QR-001</td>
+    <td>001</td>
+    <td>A</td>
+    <td>1</td>
+    <td>1</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Historias Clínicas</td>
+    <td>4001001</td>
+    <td>Ana María Solís Peraza</td>
+    <td>PDF</td>
+    <td>Ficha de Ingreso Hospitalario</td>
+    <td>PDF</td>
+    <td>001001_Ficha_Ingreso_Hospitalario.pdf</td>
+    <td>jrodriguez</td>
+    <td>2024-10-10</td>
+    <td>10</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Supervisor</td>
+    <td>2024-10-11</td>
+    <td>SI</td>
+    <td>NO</td>
+    <td>10000</td>
+    <td>30</td>
+    <td>0.3%</td>
+  </tr>
+  <tr>
+    <td>QR-002</td>
+    <td>001</td>
+    <td>A</td>
+    <td>1</td>
+    <td>2</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Administrativo</td>
+    <td>Documentos de Admisión</td>
+    <td>4001002</td>
+    <td>Carlos Arturo Peña Rivas</td>
+    <td>PDF</td>
+    <td>Consentimiento Informado</td>
+    <td>PDF</td>
+    <td>001002_Consentimiento_Informado.pdf</td>
+    <td>lmartinez</td>
+    <td>2024-10-10</td>
+    <td>10</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Incorrecto</td>
+    <td>Error de escaneo</td>
+    <td>Se solicita nuevo documento</td>
+    <td>Auditor</td>
+    <td>2024-10-12</td>
+    <td>NO</td>
+    <td>NO</td>
+    <td>9800</td>
+    <td>29</td>
+    <td>0.29%</td>
+  </tr>
+  <tr>
+    <td>QR-003</td>
+    <td>002</td>
+    <td>A</td>
+    <td>2</td>
+    <td>1</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Historias Clínicas</td>
+    <td>4001003</td>
+    <td>Elena Torres Véliz</td>
+    <td>JPG</td>
+    <td>Informe de Epicrisis</td>
+    <td>JPG</td>
+    <td>001003_Informe_Epicrisis.jpg</td>
+    <td>asanchez</td>
+    <td>2024-10-11</td>
+    <td>11</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Supervisor</td>
+    <td>2024-10-12</td>
+    <td>SI</td>
+    <td>SI</td>
+    <td>9900</td>
+    <td>28</td>
+    <td>0.28%</td>
+  </tr>
+  <tr>
+    <td>QR-004</td>
+    <td>002</td>
+    <td>B</td>
+    <td>2</td>
+    <td>2</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Exámenes</td>
+    <td>4001004</td>
+    <td>Felipe Cáceres Muñoz</td>
+    <td>PDF</td>
+    <td>Resultado Exámenes de Laboratorio</td>
+    <td>PDF</td>
+    <td>001004_Resultado_Examenes_Laboratorio.pdf</td>
+    <td>ogarcia</td>
+    <td>2024-10-11</td>
+    <td>11</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Coordinador</td>
+    <td>2024-10-13</td>
+    <td>SI</td>
+    <td>SI</td>
+    <td>10200</td>
+    <td>31</td>
+    <td>0.27%</td>
+  </tr>
+  <tr>
+    <td>QR-005</td>
+    <td>003</td>
+    <td>A</td>
+    <td>3</td>
+    <td>1</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Administrativo</td>
+    <td>Finanzas</td>
+    <td>4001005</td>
+    <td>Gabriela Soto Lama</td>
+    <td>PDF</td>
+    <td>Comprobante de Factura</td>
+    <td>PDF</td>
+    <td>001005_Comprobante_Factura.pdf</td>
+    <td>bramos</td>
+    <td>2024-10-12</td>
+    <td>12</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Supervisor</td>
+    <td>2024-10-13</td>
+    <td>SI</td>
+    <td>NO</td>
+    <td>9700</td>
+    <td>29</td>
+    <td>0.30%</td>
+  </tr>
+  <tr>
+    <td>QR-006</td>
+    <td>003</td>
+    <td>B</td>
+    <td>3</td>
+    <td>2</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Notas Médicas</td>
+    <td>4001006</td>
+    <td>Héctor Nuñez Guerra</td>
+    <td>PDF</td>
+    <td>Notas de Evolución Médica</td>
+    <td>PDF</td>
+    <td>001006_Notas_Evolucion_Medica.pdf</td>
+    <td>ccruz</td>
+    <td>2024-10-12</td>
+    <td>12</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Incorrecto</td>
+    <td>Faltan páginas</td>
+    <td>Reprocesar</td>
+    <td>Auditor</td>
+    <td>2024-10-13</td>
+    <td>NO</td>
+    <td>NO</td>
+    <td>9600</td>
+    <td>28</td>
+    <td>0.35%</td>
+  </tr>
+  <tr>
+    <td>QR-007</td>
+    <td>004</td>
+    <td>A</td>
+    <td>4</td>
+    <td>1</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Historias Clínicas</td>
+    <td>4001007</td>
+    <td>Isabel Rojas Miranda</td>
+    <td>PDF</td>
+    <td>Ficha de Ingreso Hospitalario</td>
+    <td>PDF</td>
+    <td>001007_Ficha_Ingreso_Hospitalario.pdf</td>
+    <td>mlopez</td>
+    <td>2024-10-13</td>
+    <td>13</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Supervisor</td>
+    <td>2024-10-14</td>
+    <td>SI</td>
+    <td>SI</td>
+    <td>9400</td>
+    <td>27</td>
+    <td>0.25%</td>
+  </tr>
+  <tr>
+    <td>QR-008</td>
+    <td>004</td>
+    <td>B</td>
+    <td>4</td>
+    <td>2</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Administrativo</td>
+    <td>Convenios</td>
+    <td>4001008</td>
+    <td>Jorge Vidal Pezo</td>
+    <td>PDF</td>
+    <td>Convenio de Pago</td>
+    <td>PDF</td>
+    <td>001008_Convenio_de_Pago.pdf</td>
+    <td>psoto</td>
+    <td>2024-10-13</td>
+    <td>13</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Supervisor</td>
+    <td>2024-10-14</td>
+    <td>SI</td>
+    <td>NO</td>
+    <td>9500</td>
+    <td>28</td>
+    <td>0.26%</td>
+  </tr>
+  <tr>
+    <td>QR-009</td>
+    <td>005</td>
+    <td>A</td>
+    <td>5</td>
+    <td>1</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Historias Clínicas</td>
+    <td>4001009</td>
+    <td>Karla Peña Sáenz</td>
+    <td>JPG</td>
+    <td>Informe de Epicrisis</td>
+    <td>JPG</td>
+    <td>001009_Informe_Epicrisis.jpg</td>
+    <td>cvega</td>
+    <td>2024-10-14</td>
+    <td>14</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Correcto</td>
+    <td>--</td>
+    <td>--</td>
+    <td>Auditor</td>
+    <td>2024-10-15</td>
+    <td>SI</td>
+    <td>SI</td>
+    <td>9300</td>
+    <td>27</td>
+    <td>0.24%</td>
+  </tr>
+  <tr>
+    <td>QR-010</td>
+    <td>005</td>
+    <td>B</td>
+    <td>5</td>
+    <td>2</td>
+    <td>CJN</td>
+    <td>CLÍNICA JESÚS DEL NORTE</td>
+    <td>Clínico</td>
+    <td>Exámenes</td>
+    <td>4001010</td>
+    <td>Luis Morales Ávalos</td>
+    <td>PDF</td>
+    <td>Resultado Exámenes de Laboratorio</td>
+    <td>PDF</td>
+    <td>001010_Resultado_Examenes_Laboratorio.pdf</td>
+    <td>dfernandez</td>
+    <td>2024-10-14</td>
+    <td>14</td>
+    <td>10</td>
+    <td>2024</td>
+    <td>Incorrecto</td>
+    <td>Archivo corrupto</td>
+    <td>Solicitar nuevo escaneo</td>
+    <td>Supervisor</td>
+    <td>2024-10-15</td>
+    <td>NO</td>
+    <td>NO</td>
+    <td>9100</td>
+    <td>26</td>
+    <td>0.29%</td>
+  </tr>
+</tbody>
+
+    </table>
+  </div>
+</div>
